@@ -78,6 +78,33 @@ docker build -t stock-dashboard .
 docker run -p 8000:8000 stock-dashboard
 ```
 
+### Vercel deployment
+
+This project is now set up to deploy directly on Vercel as a website backed by the FastAPI app.
+
+```bash
+npm i -g vercel
+vercel
+```
+
+What was added for Vercel:
+
+- `index.py` exposes the FastAPI `app` at a supported Vercel entrypoint.
+- `.python-version` pins Python `3.12`, which Vercel supports.
+- `vercel.json` sets a higher function timeout and excludes non-runtime files from the bundle.
+- On Vercel, SQLite automatically uses `/tmp/stocks.db` because the deployment filesystem is read-only outside writable scratch storage.
+
+Recommended environment variables if you want to tune runtime behavior:
+
+```bash
+AUTO_REFRESH_AFTER_HOURS=24
+INGESTION_LOOKBACK_DAYS=540
+```
+
+Important note:
+
+- Vercel serverless storage is ephemeral, so each new cold instance may rebuild the SQLite cache from Yahoo Finance. For a production-grade persistent deployment, swap SQLite for a managed database such as Vercel Postgres, Neon, or Supabase.
+
 ## API endpoints
 
 - `GET /companies` returns all available companies with latest market snapshot.
