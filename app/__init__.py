@@ -1,0 +1,2 @@
+"""Stock intelligence dashboard package."""
+
