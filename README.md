@@ -92,8 +92,9 @@ What was added for Vercel:
 
 - `index.py` exposes the FastAPI `app` at a supported Vercel entrypoint.
 - `.python-version` pins Python `3.12`, which Vercel supports.
-- `vercel.json` sets a higher function timeout and excludes non-runtime files from the bundle.
 - On Vercel, SQLite automatically uses `/tmp/stocks.db` because the deployment filesystem is read-only outside writable scratch storage.
+
+This deploy now uses Vercel's zero-config Python detection. That is intentional because current Vercel `functions` config targets Serverless Functions inside the `api/` directory, while this project uses a top-level ASGI entrypoint (`index.py`).
 
 Recommended environment variables if you want to tune runtime behavior:
 
