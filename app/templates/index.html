@@ -7,137 +7,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/static/styles.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js" defer></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js" defer></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" defer></script>
+    <script src="https://unpkg.com/htm@3.1.1/dist/htm.umd.js" defer></script>
     <script src="/static/app.js" defer></script>
   </head>
   <body>
-    <div class="ambient ambient-left"></div>
-    <div class="ambient ambient-right"></div>
-    <main class="layout">
-      <aside class="sidebar panel">
-        <div class="brand">
-          <p class="eyebrow">JarNox Submission</p>
-          <h1>Stock Data Intelligence Dashboard</h1>
-          <p class="lede">
-            Real NSE market history, derived analytics, and a compact comparison workspace.
-          </p>
-        </div>
-
-        <div class="controls">
-          <label for="company-list">Companies</label>
-          <div id="company-list" class="company-list" aria-live="polite"></div>
-        </div>
-
-        <div class="compare-box">
-          <label for="compare-company">Compare against</label>
-          <select id="compare-company"></select>
-
-          <label for="range-select">Window</label>
-          <select id="range-select">
-            <option value="30">Last 30 days</option>
-            <option value="90" selected>Last 90 days</option>
-            <option value="180">Last 180 days</option>
-            <option value="365">Last 365 days</option>
-          </select>
-
-          <button id="compare-button" type="button">Run Comparison</button>
-        </div>
-      </aside>
-
-      <section class="content">
-        <header class="hero panel">
-          <div>
-            <p class="eyebrow">Market Pulse</p>
-            <h2 id="selected-title">Loading market data...</h2>
-            <p id="selected-subtitle" class="lede"></p>
-          </div>
-          <div class="refresh-chip">
-            <span>Last refresh</span>
-            <strong id="refresh-time">-</strong>
-          </div>
-        </header>
-
-        <section class="summary-grid">
-          <article class="metric-card panel">
-            <p class="metric-label">Latest Close</p>
-            <p id="metric-close" class="metric-value">-</p>
-          </article>
-          <article class="metric-card panel">
-            <p class="metric-label">7D Average</p>
-            <p id="metric-ma" class="metric-value">-</p>
-          </article>
-          <article class="metric-card panel">
-            <p class="metric-label">52W Range</p>
-            <p id="metric-range" class="metric-value">-</p>
-          </article>
-          <article class="metric-card panel">
-            <p class="metric-label">Volatility Score</p>
-            <p id="metric-volatility" class="metric-value">-</p>
-          </article>
-        </section>
-
-        <section class="chart-grid">
-          <article class="panel chart-panel">
-            <div class="panel-header">
-              <div>
-                <p class="eyebrow">Price Action</p>
-                <h3>Close vs 7D moving average</h3>
-              </div>
-            </div>
-            <canvas id="price-chart"></canvas>
-          </article>
-
-          <article class="panel chart-panel">
-            <div class="panel-header">
-              <div>
-                <p class="eyebrow">Custom Insight</p>
-                <h3>Volatility and momentum score</h3>
-              </div>
-            </div>
-            <canvas id="insight-chart"></canvas>
-          </article>
-        </section>
-
-        <section class="panel compare-panel">
-          <div class="panel-header">
-            <div>
-              <p class="eyebrow">Bonus Endpoint</p>
-              <h3>Two-stock comparison</h3>
-            </div>
-            <p id="comparison-summary" class="comparison-summary">
-              Select a second company to compare relative performance.
-            </p>
-          </div>
-          <canvas id="compare-chart"></canvas>
-        </section>
-
-        <section class="insights-grid">
-          <article class="panel">
-            <div class="panel-header">
-              <div>
-                <p class="eyebrow">Top Gainers</p>
-                <h3>Best one-day moves</h3>
-              </div>
-            </div>
-            <div id="leaders" class="mini-table"></div>
-          </article>
-
-          <article class="panel">
-            <div class="panel-header">
-              <div>
-                <p class="eyebrow">Top Losers</p>
-                <h3>Weakest one-day moves</h3>
-              </div>
-            </div>
-            <div id="laggards" class="mini-table"></div>
-          </article>
-        </section>
-      </section>
-    </main>
+    <div id="root"></div>
   </body>
 </html>
-

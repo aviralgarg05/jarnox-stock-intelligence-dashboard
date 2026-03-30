@@ -13,6 +13,7 @@ This repository contains my solution for the JarNox software internship assignme
   - Momentum score (extra analytical signal)
 - Exposes REST APIs for company listing, recent price history, 52-week summary, and stock-vs-stock comparison.
 - Serves a responsive dashboard with company selection, charts, comparison mode, and top gainers/losers.
+- Uses a modern dark mode React UI with animated cards, motion-rich transitions, and richer comparison storytelling.
 
 ## Tech choices
 
@@ -20,7 +21,7 @@ This repository contains my solution for the JarNox software internship assignme
 - Storage: SQLite
 - Data processing: Pandas, NumPy
 - Data source: Yahoo Finance via `yfinance`
-- Frontend: HTML, CSS, vanilla JavaScript, Chart.js
+- Frontend: HTML, CSS, React 18 (CDN runtime), HTM, Chart.js
 - Bonus: Dockerfile and unit tests
 
 ## Project structure
